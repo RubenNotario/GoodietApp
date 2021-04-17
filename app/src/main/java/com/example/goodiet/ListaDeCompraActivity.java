@@ -1,4 +1,4 @@
-package com.example.goodiet.ui;
+package com.example.goodiet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
