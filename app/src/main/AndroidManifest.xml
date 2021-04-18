@@ -9,20 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Goodiet">
-        <activity android:name=".DetalleRecetaActivity"></activity>
-        <activity
-            android:name=".DespensaActivity">
-            </activity>
-        <activity android:name=".ListaDeCompraActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".RecuperarContrActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DetalleRecetaActivity" />
+        <activity android:name=".DespensaActivity"></activity>
+        <activity android:name=".ListaDeCompraActivity">
+
         </activity>
         <activity android:name=".ListaRecetasActivity" />
-        <activity
-            android:name=".RegistroActivity">
+        <activity android:name=".RegistroActivity">
+
         </activity>
     </application>
 
