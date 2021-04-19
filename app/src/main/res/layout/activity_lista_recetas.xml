@@ -6,9 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".ListaRecetasActivity">
 
-    <ListView
-        android:id="@+id/listaRecetas"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listaRecetas"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"></ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/design_default_color_primary"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
