@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:text="Recetas"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="416dp"
+        android:layout_height="534dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+        <ListView
+            android:id="@+id/listaCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"></ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/design_default_color_primary"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            android:onClick="AbrirPerfil"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+        <ImageButton
+            android:onClick="AbrirFavoritos"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+        <ImageButton
+            android:onClick="AbrirConfiguracion"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"></ImageButton>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

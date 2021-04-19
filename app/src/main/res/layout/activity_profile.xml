@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <ImageButton
+        android:onClick="Atras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -68,26 +68,29 @@
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
-            <ImageButton
-                android:id="@+id/imageButton7"
+            <Button
+                android:text="Despensa"
+                android:onClick="AbrirDespensa"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_marginBottom="20dp" />
 
-            <ImageButton
-                android:id="@+id/imageButton5"
+            <Button
+                android:text="Lista de la compra"
+                android:onClick="AbrirListaCompra"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_marginBottom="20dp" />
 
-            <ImageButton
-                android:id="@+id/imageButton6"
+            <Button
+                android:text="Cerrar Sesión"
+                android:onClick="CerrarSesion"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_marginBottom="40dp" />
 
             <Button
-                android:id="@+id/button3"
+                android:onClick="CambiarNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cambiar nombre" />

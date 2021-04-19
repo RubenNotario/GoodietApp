@@ -2,6 +2,7 @@ package com.example.goodiet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -37,5 +38,11 @@ public class ListaDeCompraActivity extends AppCompatActivity {
         textos.add(texto);
         ArrayAdapter adapter = (ArrayAdapter) listadeCompra.getAdapter();
         adapter.notifyDataSetChanged();
+    }
+
+    public void Atras(View view) {
+        Intent login = new Intent(ListaDeCompraActivity.this, ProfileActivity.class);
+        startActivity(login);
+        finish();
     }
 }

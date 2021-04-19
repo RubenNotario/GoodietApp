@@ -1,32 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.goodiet">
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Goodiet">
-        <activity android:name=".RecuperarContrActivity"></activity>
-        <activity android:name=".ConfigurationActivity"></activity>
-        <activity android:name=".FavoriteRecipesActivity"></activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".LoginMainActivity">
+    <manifest package="com.example.goodiet" xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:theme="@style/Theme.Goodiet" android:supportsRtl="true" android:roundIcon="@mipmap/ic_launcher_round" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:allowBackup="true">
+        <activity android:name=".RecuperarContrActivity"/>
+        <activity android:name=".ConfigurationActivity"/>
+        <activity android:name=".FavoriteRecipesActivity"/>
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".LoginMainActivity"/>
+        <activity android:name=".NameChangeActivity"/>
+        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".DetalleRecetaActivity"/>
+        <activity android:name=".DespensaActivity"/>
+        <activity android:name=".ListaDeCompraActivity"/>
+        <activity android:name=".ListaRecetasActivity"/>
+        <activity android:name=".RegistroActivity"/>
+        <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".NameChangeActivity"></activity>
-        <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".DetalleRecetaActivity" />
-        <activity android:name=".DespensaActivity"></activity>
-        <activity android:name=".ListaDeCompraActivity"></activity>
-        <activity android:name=".ListaRecetasActivity" ></activity>
-        <activity android:name=".RegistroActivity"></activity>
     </application>
-
 </manifest>
+

@@ -14,7 +14,7 @@
         <ListView
             android:id="@+id/listaRecetas"
             android:layout_width="match_parent"
-            android:layout_height="600dp"></ListView>
+            android:layout_height="668dp"></ListView>
 
     </LinearLayout>
 
@@ -27,24 +27,28 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton
+            android:onClick="AbrirPerfil"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"></ImageButton>
 
         <ImageButton
+            android:onClick="AbrirHome"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"></ImageButton>
 
         <ImageButton
+            android:onClick="AbrirFavoritos"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"></ImageButton>
 
         <ImageButton
+            android:onClick="AbrirConfiguracion"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"

@@ -11,17 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class RecetaAdapter extends ArrayAdapter {
+public class CategoriaAdapter extends ArrayAdapter {
 
     Context context;
     int itemLayout;
-    Receta[] recetas;
+    Categoria[] categorias;
 
-    public RecetaAdapter(@NonNull Context context, int resource, @NonNull Receta[] objects) {
+    public CategoriaAdapter(@NonNull Context context, int resource, @NonNull Categoria[] objects) {
         super(context, resource, objects);
         this.context = context;
         itemLayout = resource;
-        recetas = objects;
+        categorias = objects;
     }
 
     @NonNull
@@ -33,14 +33,11 @@ public class RecetaAdapter extends ArrayAdapter {
         }
 
 
-        TextView nombreReceta = convertView.findViewById(R.id.nombreReceta);
-        nombreReceta.setText(recetas[position].nombreReceta);
+        TextView nombreCategoria = convertView.findViewById(R.id.nombreCategoria);
+        nombreCategoria.setText(categorias[position].nombreCategoria);
 
-        TextView descripcion = convertView.findViewById(R.id.descripcion);
-        descripcion.setText(recetas[position].descripcion);
-
-        ImageView imagenPlato = convertView.findViewById(R.id.imagenPlato);
-        imagenPlato.setImageResource(recetas[position].imagenPlato);
+        ImageView imagenCategoria = convertView.findViewById(R.id.imagenCategroia);
+        imagenCategoria.setImageResource(categorias[position].imagenCategroia);
 
 
         return convertView;
