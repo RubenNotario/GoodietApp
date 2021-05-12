@@ -6,33 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".DetalleRecetaActivity">
 
-    <ImageButton
-        android:onClick="Atras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/logo"></ImageView>
+
+    <ImageButton
+        android:onClick="Atras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primaryColor"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
         android:text="Nombre Receta"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="@color/secondaryColor"
+        android:textSize="23sp"
+        android:fontFamily="@font/montserrat_bold"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:layout_editor_absoluteX="16dp"
-        android:gravity="center_horizontal"></TextView>
+        tools:layout_editor_absoluteX="0dp"></TextView>
 
     <ImageButton
         android:layout_width="60dp"
@@ -46,7 +53,7 @@
         android:layout_height="475dp"
         android:layout_marginBottom="4dp"
         android:orientation="vertical"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/primaryLightColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -83,25 +90,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:layout_margin="5dp"
                 android:text="00"
-                android:textColor="@color/white"
                 android:textSize="17sp">></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:layout_margin="5dp"
                 android:text="00"
-                android:textColor="@color/white"
                 android:textSize="17sp"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:layout_margin="5dp"
                 android:text="00"
-                android:textColor="@color/white"
                 android:textSize="17sp"></TextView>
         </LinearLayout>
 
@@ -116,7 +123,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

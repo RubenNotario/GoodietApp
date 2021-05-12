@@ -6,67 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".FavoriteRecipesActivity">
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center_horizontal"
+        android:text="Recetas favoritas"
+        android:textAlignment="center"
+        android:textColor="@color/secondaryColor"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_height="534dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
 
-        <TextView
-            android:textAlignment="center"
-            android:layout_margin="10dp"
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Recetas favoritas"
-            android:textSize="23sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center_horizontal" />
 
         <ListView
             android:id="@+id/listaRecetas"
             android:layout_width="match_parent"
-            android:layout_height="614dp"></ListView>
+            android:layout_height="730dp"></ListView>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:alpha="0.9"
+        android:background="@color/primaryDarkColor"
         android:gravity="center"
-        android:background="@color/design_default_color_primary"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton
-            android:onClick="AbrirPerfil"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:onClick="AbrirPerfil"></ImageButton>
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:onClick="AbrirHome"></ImageButton>
+
+        <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"></ImageButton>
 
         <ImageButton
-            android:onClick="AbrirHome"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
-
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
-
-        <ImageButton
-            android:onClick="AbrirConfiguracion"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
+            android:layout_margin="8dp"
+            android:onClick="AbrirConfiguracion"></ImageButton>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

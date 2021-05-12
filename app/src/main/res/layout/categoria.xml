@@ -25,13 +25,15 @@
             android:id="@+id/nombreCategoria"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:background="#192EB5"
+            android:fontFamily="@font/opensans_regular"
+            android:background="@color/secondaryLightColor"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingRight="20dp"
             android:paddingBottom="20dp"
             android:text="Categorias"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp" />
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

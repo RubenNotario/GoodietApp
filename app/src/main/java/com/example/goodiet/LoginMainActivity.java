@@ -10,29 +10,29 @@ import android.widget.Toast;
 
 public class LoginMainActivity extends AppCompatActivity {
 
-    EditText username;
-    EditText contraseña;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
-
-        username = findViewById(R.id.username);
-        contraseña = findViewById(R.id.contraseña);
-
     }
 
     public void Logear(View view) {
 
-            Intent login = new Intent(LoginMainActivity.this, HomeActivity.class);
-            startActivity(login);
+            Intent intent = new Intent(LoginMainActivity.this, HomeActivity.class);
+            startActivity(intent);
             finish();
         }
 
     public void Registrar(View view) {
-        Intent login = new Intent(LoginMainActivity.this, RegistroActivity.class);
-        startActivity(login);
+        Intent intent = new Intent(LoginMainActivity.this, RegistroActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void RecuperarContraseña(View view) {
+        Intent intent = new Intent(LoginMainActivity.this, RecuperarContrActivity.class);
+        startActivity(intent);
         finish();
     }
 }

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class FavoriteRecipesActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -19,15 +21,15 @@ public class FavoriteRecipesActivity extends AppCompatActivity implements Adapte
         setContentView(R.layout.activity_favorite_recipes);
 
         recetas = new Receta[9];
-        recetas[0] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[1] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[2] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[3] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[4] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[5] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[6] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[7] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
-        recetas[8] = new Receta("Nombre de Receta", "Descripción", R.mipmap.ic_launcher);
+        recetas[0] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[1] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[2] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[3] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[4] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[5] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[6] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[7] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
+        recetas[8] = new Receta("Nombre de Receta", "Descripción", R.drawable.logo);
 
         listaRecetas = findViewById(R.id.listaRecetas);
 

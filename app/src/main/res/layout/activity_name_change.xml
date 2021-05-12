@@ -10,6 +10,7 @@
         android:onClick="Atras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/primaryColor"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -26,13 +27,15 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginBottom="200dp"
-        android:background="#ACE8AE"
+        android:background="@color/primaryLightColor"
         android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
 
         <TextView
@@ -40,8 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:text="Nombre"
+            android:fontFamily="@font/opensans_bold"
             android:textColor="#000000"
             android:textSize="24sp" />
 
@@ -51,28 +55,31 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_weight="1"
+            android:fontFamily="@font/opensans_regular"
             android:text="Escribe tu nuevo nombre:"
             android:textColor="#171616"
-            android:textSize="18sp" />
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="match_parent"
+            android:fontFamily="@font/opensans_bold"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Nombre:"
-            android:textColor="#575757"
-            android:textSize="14sp" />
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:fontFamily="@font/opensans_bold"
             android:text="Cambiar nombre"
-            app:backgroundTint="#67D6E4" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:backgroundTint="@color/secondaryColor" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

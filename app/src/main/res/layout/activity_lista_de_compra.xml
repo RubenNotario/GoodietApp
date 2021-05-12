@@ -13,6 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/primaryColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable" />
@@ -28,16 +29,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:paddingTop="20dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:paddingTop="24dp"
             android:paddingBottom="20dp"
             android:text="Lista de la Compra"
+            android:textColor="@color/secondaryColor"
             android:textAlignment="center"
-            android:textSize="25sp"></TextView>
+            android:textSize="23sp" />
 
         <ListView
             android:id="@+id/listadeCompra"
             android:layout_width="match_parent"
-            android:layout_height="523dp"></ListView>
+            android:layout_height="523dp" />
 
     </LinearLayout>
 
@@ -51,14 +54,15 @@
             android:id="@+id/ingrediente"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:hint="Añade tu ingrdiente"></EditText>
+            android:hint="Añade tu ingrdiente" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="agregar"
+            android:backgroundTint="@color/secondaryColor"
             android:text="+"
-            android:textSize="28sp"></Button>
+            android:textSize="28sp" />
 
     </LinearLayout>
 

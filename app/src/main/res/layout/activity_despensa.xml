@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:backgroundTint="@color/primaryColor"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,11 +29,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:paddingTop="20dp"
+            android:paddingTop="24dp"
+            android:fontFamily="@font/montserrat_bold"
             android:paddingBottom="20dp"
+            android:textColor="@color/secondaryColor"
             android:text="Despensa"
             android:textAlignment="center"
-            android:textSize="25sp"></TextView>
+            android:textSize="23sp"></TextView>
 
         <ListView
             android:id="@+id/listaDespensa"
@@ -56,6 +59,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondaryColor"
             android:onClick="agregar"
             android:text="+"
             android:textSize="28sp"></Button>

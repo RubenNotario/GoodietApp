@@ -23,7 +23,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@color/design_default_color_primary"
+        android:background="@color/primaryDarkColor"
+        android:alpha="0.9"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton

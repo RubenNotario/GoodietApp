@@ -1,7 +1,5 @@
 package com.example.goodiet;
 
-import android.media.Image;
-
 public class Receta {
     public String nombreReceta;
     public String descripcion;

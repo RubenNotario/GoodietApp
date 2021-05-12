@@ -13,6 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/primaryColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable" />
@@ -23,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Perfil"
-        android:textSize="18sp"
+        android:textColor="@color/secondaryColor"
+        android:fontFamily="@font/montserrat_bold"
+        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,35 +67,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
+                android:fontFamily="@font/opensans_bold"
                 android:text="Nombre"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
             <Button
                 android:text="Despensa"
+                android:fontFamily="@font/opensans_bold"
                 android:onClick="AbrirDespensa"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:backgroundTint="@color/secondaryColor"
+                android:textColor="#000000"
+                android:layout_height="70dp"
+                android:alpha="0.9"
+                android:textSize="16sp"
                 android:layout_marginBottom="20dp" />
 
             <Button
                 android:text="Lista de la compra"
                 android:onClick="AbrirListaCompra"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="#000000"
+                android:alpha="0.9"
+                android:textSize="16sp"
+                android:backgroundTint="@color/secondaryColor"
+                android:layout_height="70dp"
                 android:layout_marginBottom="20dp" />
 
             <Button
                 android:text="Cerrar Sesión"
                 android:onClick="CerrarSesion"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:textColor="#000000"
+                android:alpha="0.9"
+                android:fontFamily="@font/opensans_bold"
+                android:textSize="16sp"
+                android:backgroundTint="@color/secondaryColor"
+                android:layout_height="70dp"
                 android:layout_marginBottom="40dp" />
 
             <Button
                 android:onClick="CambiarNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:textColor="@color/black"
+                android:alpha="0.9"
+                android:textSize="16sp"
+                android:backgroundTint="@color/secondaryColor"
                 android:text="Cambiar nombre" />
 
         </LinearLayout>
