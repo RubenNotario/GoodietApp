@@ -43,38 +43,45 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:alpha="0.8"
-        android:gravity="center"
         android:background="@color/primaryDarkColor"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:gravity="center"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="10dp"
+            android:background="@color/primaryColor"
             android:onClick="AbrirPerfil"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
+            android:src="@drawable/perfil"></ImageButton>
 
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
+            android:layout_margin="10dp"
+            android:background="@color/primaryColor"
+            android:src="@drawable/home"></ImageButton>
 
         <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="10dp"
+            android:background="@color/primaryColor"
             android:onClick="AbrirFavoritos"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
+            android:src="@drawable/corazon"></ImageButton>
 
         <ImageButton
-            android:onClick="AbrirConfiguracion"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
+            android:layout_margin="10dp"
+            android:background="@color/primaryColor"
+            android:onClick="AbrirConfiguracion"
+            android:src="@drawable/configuraciones"></ImageButton>
 
     </LinearLayout>
 

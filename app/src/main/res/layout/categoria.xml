@@ -18,8 +18,8 @@
         <ImageView
             android:id="@+id/imagenCategroia"
             android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="160dp"
+            android:src="@color/black"/>
 
         <TextView
             android:id="@+id/nombreCategoria"

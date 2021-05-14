@@ -28,32 +28,40 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/primaryColor"
             android:onClick="AbrirPerfil"
+            android:src="@drawable/perfil"></ImageButton>
+
+        <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
-
-        <ImageButton
+            android:layout_margin="8dp"
+            android:background="@color/primaryColor"
             android:onClick="AbrirHome"
+            android:src="@drawable/home"></ImageButton>
+
+        <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
-
-        <ImageButton
+            android:layout_margin="8dp"
+            android:background="@color/primaryColor"
             android:onClick="AbrirFavoritos"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
+            android:src="@drawable/corazon"></ImageButton>
 
         <ImageButton
-            android:onClick="AbrirConfiguracion"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_margin="8dp"></ImageButton>
+            android:layout_margin="8dp"
+            android:background="@color/primaryColor"
+            android:onClick="AbrirConfiguracion"
+            android:src="@drawable/configuraciones"></ImageButton>
 
     </LinearLayout>
 

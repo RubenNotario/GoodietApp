@@ -12,18 +12,19 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="350dp"
-        android:layout_marginTop="2dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/editText3"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:hint="correo electronico"
+        android:background="@drawable/estilo_borde_edittext"
+        android:shadowColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:hint="contraseña"
+        android:background="@drawable/estilo_borde_edittext"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -61,14 +63,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/opensans_regular"
         android:gravity="center_horizontal"
         android:onClick="RecuperarContraseña"
         android:text="He olvidado mi contraseña"
-        android:fontFamily="@font/opensans_regular"
         android:textColor="#0645AD"
         android:textSize="11sp"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <Button
         android:id="@+id/button1"
@@ -90,16 +93,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:gravity="center_horizontal"
         android:fontFamily="@font/opensans_regular"
+        android:gravity="center_horizontal"
         android:onClick="RecuperarContraseña"
         android:text="¿No tienes cuenta? Registrate!"
         android:textColor="@color/black"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button1"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
