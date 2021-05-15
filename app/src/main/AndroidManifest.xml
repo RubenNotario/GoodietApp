@@ -5,7 +5,8 @@
         <activity android:name=".RecuperarContrActivity"/>
         <activity android:name=".ConfigurationActivity"/>
         <activity android:name=".FavoriteRecipesActivity"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".LoginMainActivity"/>
         <activity android:name=".NameChangeActivity"/>
         <activity android:name=".ProfileActivity"/>

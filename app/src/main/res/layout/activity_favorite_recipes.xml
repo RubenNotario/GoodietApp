@@ -18,6 +18,7 @@
         android:textAlignment="center"
         android:textColor="@color/secondaryColor"
         android:textSize="23sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +34,7 @@
         <ListView
             android:id="@+id/listaRecetas"
             android:layout_width="match_parent"
-            android:layout_height="730dp"></ListView>
+            android:layout_height="wrap_content"></ListView>
 
     </LinearLayout>
 
@@ -41,7 +42,8 @@
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alpha="0.9"
+        android:alpha="0.8"
+        android:padding="5dp"
         android:background="@color/primaryDarkColor"
         android:gravity="center"
         android:orientation="horizontal"
@@ -50,37 +52,37 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="64dp"
+            android:layout_height="63dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@color/primaryColor"
+            android:layout_marginHorizontal="12dp"
+            android:background="@color/transparente"
             android:onClick="AbrirPerfil"
             android:src="@drawable/perfil"></ImageButton>
 
         <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@color/primaryColor"
+            android:layout_marginHorizontal="12dp"
+            android:background="@color/transparente"
             android:onClick="AbrirHome"
             android:src="@drawable/home"></ImageButton>
 
         <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@color/primaryColor"
+            android:layout_marginHorizontal="12dp"
+            android:background="@color/transparente"
             android:src="@drawable/corazon"></ImageButton>
 
         <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@color/primaryColor"
+            android:layout_marginHorizontal="12dp"
+            android:background="@color/transparente"
             android:onClick="AbrirConfiguracion"
             android:src="@drawable/configuraciones"></ImageButton>
 
