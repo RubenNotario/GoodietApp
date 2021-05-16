@@ -11,13 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.goodiet.Model.Categoria;
+
+import java.util.List;
+
 public class CategoriaAdapter extends ArrayAdapter {
 
     Context context;
     int itemLayout;
-    Categoria[] categorias;
+    List<Categoria> categorias;
 
-    public CategoriaAdapter(@NonNull Context context, int resource, @NonNull Categoria[] objects) {
+    public CategoriaAdapter(@NonNull Context context, int resource, @NonNull List<Categoria> objects) {
         super(context, resource, objects);
         this.context = context;
         itemLayout = resource;
@@ -34,10 +38,10 @@ public class CategoriaAdapter extends ArrayAdapter {
 
 
         TextView nombreCategoria = convertView.findViewById(R.id.nombreCategoria);
-        nombreCategoria.setText(categorias[position].nombreCategoria);
+        nombreCategoria.setText(categorias.get(position).nombreCategoria);
 
         ImageView imagenCategoria = convertView.findViewById(R.id.imagenCategoria);
-        imagenCategoria.setImageResource(categorias[position].imagenCategroia);
+        imagenCategoria.setImageResource(categorias.get(position).imagenCategroia);
 
 
         return convertView;
