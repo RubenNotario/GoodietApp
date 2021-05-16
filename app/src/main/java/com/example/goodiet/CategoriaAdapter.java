@@ -36,7 +36,7 @@ public class CategoriaAdapter extends ArrayAdapter {
         TextView nombreCategoria = convertView.findViewById(R.id.nombreCategoria);
         nombreCategoria.setText(categorias[position].nombreCategoria);
 
-        ImageView imagenCategoria = convertView.findViewById(R.id.imagenCategroia);
+        ImageView imagenCategoria = convertView.findViewById(R.id.imagenCategoria);
         imagenCategoria.setImageResource(categorias[position].imagenCategroia);
 
 

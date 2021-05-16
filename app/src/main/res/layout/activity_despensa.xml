@@ -21,30 +21,40 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             android:gravity="center_horizontal"
             android:paddingTop="24dp"
-            android:fontFamily="@font/montserrat_bold"
             android:paddingBottom="20dp"
-            android:textColor="@color/secondaryColor"
             android:text="Despensa"
             android:textAlignment="center"
-            android:textSize="23sp"></TextView>
+            android:textColor="@color/secondaryColor"
+            android:textSize="23sp">
+
+        </TextView>
 
         <ListView
             android:id="@+id/listaDespensa"
             android:layout_width="match_parent"
-            android:layout_height="523dp"></ListView>
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+        </ListView>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
@@ -61,21 +71,25 @@
             android:id="@+id/ingrediente"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/estilo_borde_edittext"
-            android:hint="Añade tu ingrediente:"></EditText>
+            android:hint="Añade tu ingrediente:">
+
+        </EditText>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/secondaryColor"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/secondaryColor"
             android:onClick="agregar"
             android:text="+"
-            android:textSize="28sp"></Button>
+            android:textSize="28sp">
+
+        </Button>
 
     </LinearLayout>
 

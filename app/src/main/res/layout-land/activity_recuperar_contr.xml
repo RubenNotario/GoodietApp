@@ -4,71 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity">
+    tools:context=".RecuperarContrActivity">
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout15"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout15"
+        android:id="@+id/linearLayout14"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:gravity="center"
         android:padding="20dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo">
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/editText5"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/estilo_borde_edittext"
-            android:hint="correo electronico:"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/estilo_borde_edittext"
-            android:hint="contraseña:" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="350dp"
+            android:id="@+id/usuario"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
             android:background="@drawable/estilo_borde_edittext"
-            android:hint="repetir contraseña:" />
+            android:hint="Introduce tu email:" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="0.9"
             android:backgroundTint="@color/secondaryColor"
             android:fontFamily="@font/opensans_bold"
-            android:onClick="Registrar"
-            android:text="Registrar"
+            android:onClick="RecuperarContraseña"
+            android:text="Solicitar Cambio"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
     </LinearLayout>
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,38 +20,44 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:fontFamily="@font/montserrat_bold"
+            android:gravity="center_horizontal"
             android:paddingTop="24dp"
             android:paddingBottom="20dp"
             android:text="Lista de la Compra"
-            android:textColor="@color/secondaryColor"
             android:textAlignment="center"
+            android:textColor="@color/secondaryColor"
             android:textSize="23sp" />
 
         <ListView
             android:id="@+id/listadeCompra"
             android:layout_width="match_parent"
-            android:layout_height="523dp" />
+            android:layout_height="match_parent"
+            android:padding="20dp" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
         android:layout_marginLeft="3dp"
         android:layout_marginEnd="3dp"
-        android:gravity="center"
         android:layout_marginRight="3dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,18 +67,18 @@
             android:id="@+id/ingrediente"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/estilo_borde_edittext"
             android:hint="Añade tu ingrediente:" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/secondaryColor"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/secondaryColor"
             android:onClick="agregar"
             android:text="+"
             android:textSize="28sp" />
