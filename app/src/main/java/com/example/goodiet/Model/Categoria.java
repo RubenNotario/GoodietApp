@@ -1,4 +1,4 @@
-package com.example.goodiet;
+package com.example.goodiet.Model;
 
 public class Categoria {
 

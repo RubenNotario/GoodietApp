@@ -19,11 +19,9 @@
 
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/logo">
-
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo_sintexto">
         </ImageView>
 
         <LinearLayout
@@ -41,6 +39,7 @@
             </EditText>
 
             <ImageButton
+                android:onClick="BuscarRecetas"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
