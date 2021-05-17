@@ -19,7 +19,7 @@
 
         <ImageView
             android:id="@+id/imagenCategoria"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:background="@drawable/estilo_borde_categoria"
@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/nombreCategoria"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/secondaryLightColor"

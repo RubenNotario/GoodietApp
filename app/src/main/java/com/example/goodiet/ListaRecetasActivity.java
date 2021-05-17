@@ -29,6 +29,9 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
         recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
         recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
         recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
 
         listaRecetas = findViewById(R.id.listaRecetas);
 
