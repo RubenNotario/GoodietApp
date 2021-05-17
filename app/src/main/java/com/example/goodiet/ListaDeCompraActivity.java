@@ -15,9 +15,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
-public class ListaDeCompraActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener {
+public class ListaDeCompraActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener {
 
     ArrayList<String> ingredientes;
     ListView listadeCompra;
@@ -37,6 +39,7 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
         listadeCompra.setAdapter(ingredienteAdapter);
 
         listadeCompra.setOnItemLongClickListener(this);
+        listadeCompra.setOnItemClickListener(this);
 
     }
 
@@ -69,16 +72,31 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
                 ingredientes.remove(posicion);
                 IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listadeCompra.getAdapter();
                 ingredienteAdapter.notifyDataSetChanged();
+                Toast.makeText(ListaDeCompraActivity.this, "Operacion aceptada", Toast.LENGTH_SHORT).show();
+
+                View vista = findViewById(R.id.vistaDeLaCompra);
+                Snackbar.make(vista, "¿Quiere incluir el ingrediente en la despensa?", Snackbar.LENGTH_INDEFINITE).setAction("Yes", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(ListaDeCompraActivity.this, "Se ha incluido en la despensa", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
             }
         });
         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(ListaDeCompraActivity.this, "Operacion cancelada", Toast.LENGTH_LONG).show();
+                Toast.makeText(ListaDeCompraActivity.this, "Operacion cancelada", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.show();
 
         return false;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        View vista = findViewById(R.id.vistaDeLaCompra);
+        Snackbar.make(vista, "Manten pulsado sobre el ingrediente para eliminarlo", Snackbar.LENGTH_LONG).show();
     }
 }

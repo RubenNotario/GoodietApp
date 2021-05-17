@@ -19,11 +19,12 @@ import android.widget.Toast;
 
 import com.example.goodiet.Model.Ingrediente;
 import com.example.goodiet.Model.Receta;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DespensaActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener {
+public class DespensaActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener {
 
     ListView listaDespensa;
     EditText ingrediente;
@@ -42,7 +43,9 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
         IngredienteAdapter ingredienteAdapter = new IngredienteAdapter(this, R.layout.ingrediente, ingredientes);
         listaDespensa.setAdapter(ingredienteAdapter);
 
+        listaDespensa.setOnItemClickListener(this);
         listaDespensa.setOnItemLongClickListener(this);
+
     }
 
     public void agregar(View view){
@@ -75,12 +78,13 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
                 ingredientes.remove(posicion);
                 IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listaDespensa.getAdapter();
                 ingredienteAdapter.notifyDataSetChanged();
+                Toast.makeText(DespensaActivity.this, "Operacion aceptada", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(DespensaActivity.this, "Operacion cancelada", Toast.LENGTH_LONG).show();
+                Toast.makeText(DespensaActivity.this, "Operacion cancelada", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.show();
@@ -88,4 +92,9 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
         return false;
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        View vista = findViewById(R.id.vistaDespensa);
+        Snackbar.make(vista, "Manten pulsado sobre el ingrediente para eliminarlo", Snackbar.LENGTH_LONG).show();
+    }
 }
