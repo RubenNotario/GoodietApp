@@ -12,20 +12,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.goodiet.Model.Categoria;
+import com.example.goodiet.Model.Ingrediente;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriaAdapter extends ArrayAdapter {
+
+public class IngredienteAdapter extends ArrayAdapter {
 
     Context context;
     int itemLayout;
-    List<Categoria> categorias;
+    ArrayList<String> ingredientes;
 
-    public CategoriaAdapter(@NonNull Context context, int resource, @NonNull List<Categoria> objects) {
+    public IngredienteAdapter(@NonNull Context context, int resource, @NonNull ArrayList<String> objects) {
         super(context, resource, objects);
+
         this.context = context;
         itemLayout = resource;
-        categorias = objects;
+        ingredientes = objects;
+
     }
 
     @NonNull
@@ -36,14 +41,10 @@ public class CategoriaAdapter extends ArrayAdapter {
             convertView = layoutInflater.inflate(itemLayout, parent, false);
         }
 
-
-        TextView nombreCategoria = convertView.findViewById(R.id.nombreCategoria);
-        nombreCategoria.setText(categorias.get(position).nombreCategoria);
-
-        ImageView imagenCategoria = convertView.findViewById(R.id.imagenCategoria);
-        imagenCategoria.setImageResource(categorias.get(position).imagenCategoria);
-
+        TextView nombreIngrediente = convertView.findViewById(R.id.nombreIngrediente);
+        nombreIngrediente.setText(ingredientes.get(position));
 
         return convertView;
     }
+
 }

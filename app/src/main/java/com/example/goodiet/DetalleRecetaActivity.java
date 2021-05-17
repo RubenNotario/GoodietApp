@@ -38,6 +38,6 @@ public class DetalleRecetaActivity extends AppCompatActivity implements View.OnC
     @Override
     public boolean onLongClick(View view) {
         megusta.setImageResource(R.drawable.nofavorito);
-        return true;
+        return false;
     }
 }

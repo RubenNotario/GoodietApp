@@ -1,22 +1,33 @@
 package com.example.goodiet;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.example.goodiet.Model.Ingrediente;
+import com.example.goodiet.Model.Receta;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class DespensaActivity extends AppCompatActivity {
+public class DespensaActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener {
 
-    ArrayList<String> textos;
     ListView listaDespensa;
     EditText ingrediente;
+    ArrayList<String> ingredientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +37,22 @@ public class DespensaActivity extends AppCompatActivity {
         listaDespensa = findViewById(R.id.listaDespensa);
         ingrediente = findViewById(R.id.ingrediente);
 
-        textos = new ArrayList<>();
+        ingredientes = new ArrayList<>();
 
-        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, textos);
+        IngredienteAdapter ingredienteAdapter = new IngredienteAdapter(this, R.layout.ingrediente, ingredientes);
+        listaDespensa.setAdapter(ingredienteAdapter);
 
-        listaDespensa.setAdapter(adapter);
-
+        listaDespensa.setOnItemLongClickListener(this);
     }
 
     public void agregar(View view){
-        String texto = ingrediente.getText().toString();
-        textos.add(texto);
-        ArrayAdapter adapter = (ArrayAdapter) listaDespensa.getAdapter();
-        adapter.notifyDataSetChanged();
+        String nombreIngrediente = ingrediente.getText().toString();
+
+        ingredientes.add(nombreIngrediente);
+
+        IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listaDespensa.getAdapter();
+        ingredienteAdapter.notifyDataSetChanged();
+
     }
 
     public void Atras(View view) {
@@ -46,4 +60,32 @@ public class DespensaActivity extends AppCompatActivity {
         startActivity(login);
         finish();
     }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+        final int posicion = i;
+
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("¡IMPORTANTE!");
+        dialogo1.setMessage("Ya no tienes ese ingrediente, ¿desea eliminarlo?");
+        dialogo1.setCancelable(false);
+        dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                ingredientes.remove(posicion);
+                IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listaDespensa.getAdapter();
+                ingredienteAdapter.notifyDataSetChanged();
+            }
+        });
+        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(DespensaActivity.this, "Operacion cancelada", Toast.LENGTH_LONG).show();
+            }
+        });
+        dialogo1.show();
+
+        return false;
+    }
+
 }
