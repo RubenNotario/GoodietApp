@@ -44,29 +44,22 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
         listaDespensa.setOnItemLongClickListener(this);
         //Almacenar-obtener preferencias.
         sharedPreferences = getSharedPreferences("ALMACEN1", MODE_PRIVATE);
-        //Transpaso del ingrediente de la lista de compra.
-        Intent intent = getIntent();
-        String ingredienteTraspaso = intent.getStringExtra("IngredienteTraspaso");
-        //obtener y enseñar el dato guardado y añadir el ingrediente traspasado.
+        //obtener y enseñar el dato guardado.
         String ingredientesAñadidos = sharedPreferences.getString("ingredientesAñadidos","");
-        
-        if(!ingredientesAñadidos.isEmpty() || !ingredienteTraspaso.isEmpty()){
-            listaIngredientes = new ListaIngredientes();
-            listaIngredientes = listaIngredientes.fromJson(ingredientesAñadidos);
-            listaIngredientes.ingredientes.add(ingredienteTraspaso);
-        }else if(!ingredientesAñadidos.isEmpty()){
+        if(!ingredientesAñadidos.isEmpty()){
             listaIngredientes = new ListaIngredientes();
             listaIngredientes = listaIngredientes.fromJson(ingredientesAñadidos);
         }else{
             listaIngredientes = new ListaIngredientes();
         }
-
-
+        //Transpaso del ingrediente de la lista de compra y añadir el ingrediente traspasado.
+        Intent intent = getIntent();
+        String ingredienteTraspaso = intent.getStringExtra("IngredienteTraspaso");
+        listaIngredientes.ingredientes.add(ingredienteTraspaso);
         //momento en el que se guardan las preferencias.
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
         editor.apply();
-
         //Integracion adapter con la lista.
         IngredienteAdapter ingredienteAdapter = new IngredienteAdapter(this, R.layout.ingrediente, listaIngredientes.ingredientes);
         listaDespensa.setAdapter(ingredienteAdapter);
@@ -116,7 +109,7 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
                 editor.apply();
-                Toast.makeText(DespensaActivity.this, "Operacion aceptada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DespensaActivity.this, "Ingrediente eliminado", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

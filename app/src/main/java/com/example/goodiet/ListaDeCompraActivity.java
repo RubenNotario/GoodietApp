@@ -84,7 +84,7 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
         final int posicion = i;
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("¡IMPORTANTE!");
-        dialogo1.setMessage("Antes de eliminar el ingrediente, ¿Desea enviarlo a la despensa?");
+        dialogo1.setMessage("Antes de eliminar el ingrediente, ¿Desea enviarlo a la despensa? El ingrediente se eliminara automaticamente.");
         dialogo1.setCancelable(false);
         dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override

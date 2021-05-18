@@ -54,13 +54,13 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent login = new Intent(ProfileActivity.this, LoginMainActivity.class);
                 startActivity(login);
                 finish();
-                Toast.makeText(ProfileActivity.this, "Sesion correctamente cerrada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, "Sesion finalizada correctamente", Toast.LENGTH_SHORT).show();
             }
         });
         dialogoCerrarSesion.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(ProfileActivity.this, "Cancelado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, "Operacion cancelada", Toast.LENGTH_SHORT).show();
             }
         });
         dialogoCerrarSesion.show();
