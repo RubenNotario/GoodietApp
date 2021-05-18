@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.goodiet.Model.Ingrediente;
+import com.example.goodiet.Model.ListaIngredientes;
 import com.example.goodiet.Model.Receta;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -28,42 +29,75 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
 
     ListView listaDespensa;
     EditText ingrediente;
-    ArrayList<String> ingredientes;
+    ListaIngredientes listaIngredientes;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_despensa);
-
+        //Busqueda de vistas del layout.
         listaDespensa = findViewById(R.id.listaDespensa);
         ingrediente = findViewById(R.id.ingrediente);
-
-        ingredientes = new ArrayList<>();
-
-        IngredienteAdapter ingredienteAdapter = new IngredienteAdapter(this, R.layout.ingrediente, ingredientes);
-        listaDespensa.setAdapter(ingredienteAdapter);
-
+        //creacion funciones de clicks.
         listaDespensa.setOnItemClickListener(this);
         listaDespensa.setOnItemLongClickListener(this);
+        //Almacenar-obtener preferencias.
+        sharedPreferences = getSharedPreferences("ALMACEN1", MODE_PRIVATE);
+        //Transpaso del ingrediente de la lista de compra.
+        Intent intent = getIntent();
+        String ingredienteTraspaso = intent.getStringExtra("IngredienteTraspaso");
+        //obtener y enseñar el dato guardado y añadir el ingrediente traspasado.
+        String ingredientesAñadidos = sharedPreferences.getString("ingredientesAñadidos","");
+        
+        if(!ingredientesAñadidos.isEmpty() || !ingredienteTraspaso.isEmpty()){
+            listaIngredientes = new ListaIngredientes();
+            listaIngredientes = listaIngredientes.fromJson(ingredientesAñadidos);
+            listaIngredientes.ingredientes.add(ingredienteTraspaso);
+        }else if(!ingredientesAñadidos.isEmpty()){
+            listaIngredientes = new ListaIngredientes();
+            listaIngredientes = listaIngredientes.fromJson(ingredientesAñadidos);
+        }else{
+            listaIngredientes = new ListaIngredientes();
+        }
 
+
+        //momento en el que se guardan las preferencias.
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
+        editor.apply();
+
+        //Integracion adapter con la lista.
+        IngredienteAdapter ingredienteAdapter = new IngredienteAdapter(this, R.layout.ingrediente, listaIngredientes.ingredientes);
+        listaDespensa.setAdapter(ingredienteAdapter);
     }
 
+    //Funcion para agregar elementos a la lista.
     public void agregar(View view){
         String nombreIngrediente = ingrediente.getText().toString();
 
-        ingredientes.add(nombreIngrediente);
+        listaIngredientes.ingredientes.add(nombreIngrediente);
 
         IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listaDespensa.getAdapter();
         ingredienteAdapter.notifyDataSetChanged();
 
+        //momento en el que se guardan las preferencias.
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
+        editor.apply();
+        //limpiar buscador.
+        ingrediente.setText("");
+
     }
 
+    //Funcion para ir a la pantalla anterior.
     public void Atras(View view) {
         Intent login = new Intent(DespensaActivity.this, ProfileActivity.class);
         startActivity(login);
         finish();
     }
 
+    //Funcion para eliminar el ingrediente.
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
         final int posicion = i;
@@ -75,9 +109,13 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
         dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                ingredientes.remove(posicion);
+                listaIngredientes.ingredientes.remove(posicion);
                 IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listaDespensa.getAdapter();
                 ingredienteAdapter.notifyDataSetChanged();
+                //momento en el que se guardan las preferencias.
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
+                editor.apply();
                 Toast.makeText(DespensaActivity.this, "Operacion aceptada", Toast.LENGTH_SHORT).show();
             }
         });
@@ -92,6 +130,7 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
         return false;
     }
 
+    //Funcion explicativa del proceso de eliminacion.
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         View vista = findViewById(R.id.vistaDespensa);

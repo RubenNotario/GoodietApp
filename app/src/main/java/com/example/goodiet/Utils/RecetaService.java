@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public interface RecetaService {
 
-    @GET("listar/")
-    Call<List<Receta>> getReceta();
+    @GET("recipes/")
+    Call<List<Receta>> getRecetas();
 
 }
