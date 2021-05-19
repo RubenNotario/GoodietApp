@@ -1,6 +1,7 @@
 package com.example.goodiet;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,14 +38,14 @@ public class RecetaAdapter extends ArrayAdapter {
         }
 
 
-        TextView nombreReceta = convertView.findViewById(R.id.nombreReceta);
-        nombreReceta.setText(recetas.get(position).nombreReceta);
+        TextView name = convertView.findViewById(R.id.name);
+        name.setText(recetas.get(position).getName());
 
         TextView descripcion = convertView.findViewById(R.id.descripcion);
-        descripcion.setText(recetas.get(position).descripcion);
+        descripcion.setText(recetas.get(position).getDescripcion());
 
-        ImageView imagenPlato = convertView.findViewById(R.id.imagenPlato);
-        imagenPlato.setImageResource(recetas.get(position).imagenPlato);
+        ImageView imageFile = convertView.findViewById(R.id.imageFile);
+        imageFile.setImageDrawable(Drawable.createFromPath("R.drawable." + recetas.get(position).getImageFile()));
 
 
         return convertView;

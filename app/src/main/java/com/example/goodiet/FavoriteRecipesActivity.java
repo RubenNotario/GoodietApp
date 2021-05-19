@@ -24,14 +24,14 @@ public class FavoriteRecipesActivity extends AppCompatActivity implements Adapte
         setContentView(R.layout.activity_favorite_recipes);
 
 
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", R.drawable.logo));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
+        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
 
 
         listaRecetas = findViewById(R.id.listaRecetas);

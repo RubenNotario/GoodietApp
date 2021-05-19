@@ -2,27 +2,27 @@ package com.example.goodiet.Model;
 
 public class Categoria {
 
-    public String nombreCategoria;
-    public int imagenCategoria;
+    public String name;
+    public String imageFile;
 
-    public Categoria(String nombreCategoria, int imagenCategroia){
-        this.nombreCategoria = nombreCategoria;
-        this.imagenCategoria = imagenCategroia;
+    public Categoria(String name, String imageFile) {
+        this.name = name;
+        this.imageFile = imageFile;
     }
 
-    public String getNombreCategoria() {
-        return nombreCategoria;
+    public String getName() {
+        return name;
     }
 
-    public void setNombreCategoria(String nombreCategoria) {
-        this.nombreCategoria = nombreCategoria;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getImagenCategoria() {
-        return imagenCategoria;
+    public String getImageFile() {
+        return imageFile;
     }
 
-    public void setImagenCategoria(int imagenCategoria) {
-        this.imagenCategoria = imagenCategoria;
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
     }
 }

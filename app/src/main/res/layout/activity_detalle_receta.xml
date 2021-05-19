@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageFile"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:src="@drawable/logo"
@@ -30,13 +30,13 @@
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center_horizontal"
-        android:text="Nombre Receta"
+        android:text="name"
         android:textAlignment="center"
         android:textColor="@color/secondaryColor"
         android:textSize="23sp"
@@ -71,7 +71,7 @@
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/name">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,6 +100,7 @@
                     </ImageButton>
 
                     <TextView
+                        android:id="@+id/rate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -128,6 +129,7 @@
                     </ImageButton>
 
                     <TextView
+                        android:id="@+id/timeTaken"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -154,6 +156,7 @@
                     </ImageButton>
 
                     <TextView
+                        android:id="@+id/difficulty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -168,6 +171,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/pasos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"

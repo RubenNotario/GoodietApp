@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imagenPlato"
+            android:id="@+id/imageFile"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -31,19 +31,19 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/nombreReceta"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/opensans_bold"
                 android:text="Nombre Receta"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/opensans_regular"
-                android:text="Descripción"
+                android:text="descripcion"
                 android:textSize="15sp" />
 
         </LinearLayout>

@@ -9,4 +9,8 @@ public class Apis {
     public static RecetaService getRecetaService(){
         return Cliente.getCliente(URL_001).create(RecetaService.class);
     }
+
+    public static CategoriaService getCategoriaService(){
+        return Cliente.getCliente(URL_001).create(CategoriaService.class);
+    }
 }

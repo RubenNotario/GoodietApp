@@ -1,25 +1,34 @@
 package com.example.goodiet.Model;
 
 public class Receta {
-    public String nombreReceta;
-    public String descripcion;
-    public int imagenPlato;
-    public String pasos;
-    public int puntuacion;
-    public float tiempo;
+    int id;
+    String name;
+    String descripcion;
+    String imageFile;
+    String pasos;
+    int puntuacion;
+    String timeTaken;
 
-    public Receta(String nombreReceta, String descripcion, int imagenPlato){
-        this.nombreReceta = nombreReceta;
+    public Receta(String name, String descripcion, String imageFile){
+        this.name = name;
         this.descripcion = descripcion;
-        this.imagenPlato = imagenPlato;
+        this.imageFile = imageFile;
     }
 
-    public String getNombreReceta() {
-        return nombreReceta;
+    public int getId() {
+        return id;
     }
 
-    public void setNombreReceta(String nombreReceta) {
-        this.nombreReceta = nombreReceta;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescripcion() {
@@ -30,12 +39,12 @@ public class Receta {
         this.descripcion = descripcion;
     }
 
-    public int getImagenPlato() {
-        return imagenPlato;
+    public String getImageFile() {
+        return imageFile;
     }
 
-    public void setImagenPlato(int imagenPlato) {
-        this.imagenPlato = imagenPlato;
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
     }
 
     public String getPasos() {
@@ -54,11 +63,11 @@ public class Receta {
         this.puntuacion = puntuacion;
     }
 
-    public float getTiempo() {
-        return tiempo;
+    public String getTimeTaken() {
+        return timeTaken;
     }
 
-    public void setTiempo(float tiempo) {
-        this.tiempo = tiempo;
+    public void setTimeTaken(String timeTaken) {
+        this.timeTaken = timeTaken;
     }
 }
