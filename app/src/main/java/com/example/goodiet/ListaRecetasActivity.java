@@ -27,6 +27,7 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
     RecetaAdapter recetaAdapter;
     RecetaService recetaService;
     String category;
+    String parametro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,14 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
         listaRecetas.setOnItemClickListener(this);
 
         category = getIntent().getStringExtra("category");
-        ListarRecetasPorCategoria();
+        parametro = getIntent().getStringExtra("parametro");
+
+        if (category == null){
+            ListarRecetasPorParametro();
+        } else{
+            ListarRecetasPorCategoria();
+        }
+
 
     }
 
@@ -51,6 +59,27 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
                 recetas = response.body();
                 recetaAdapter = new RecetaAdapter(ListaRecetasActivity.this, R.layout.receta, recetas);
                 listaRecetas.setAdapter(recetaAdapter);
+                Log.d("response", response.body().toString());
+                Log.d("status", response.toString());
+            }
+
+            @Override
+            public void onFailure(Call<List<Receta>> call, Throwable t) {
+                Log.d("response", t.getMessage());
+            }
+        });
+
+    }
+
+    public void ListarRecetasPorParametro(){
+        Call<List<Receta>> call=recetaService.getRecetasPorParametro(parametro);
+        call.enqueue(new Callback<List<Receta>>() {
+            @Override
+            public void onResponse(Call<List<Receta>> call, Response<List<Receta>> response) {
+                recetas = response.body();
+                recetaAdapter = new RecetaAdapter(ListaRecetasActivity.this, R.layout.receta, recetas);
+                listaRecetas.setAdapter(recetaAdapter);
+                Log.d("parametro", parametro);
                 Log.d("response", response.body().toString());
                 Log.d("status", response.toString());
             }
