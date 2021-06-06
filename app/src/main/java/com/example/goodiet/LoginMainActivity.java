@@ -74,8 +74,6 @@ public class LoginMainActivity extends AppCompatActivity {
             public void onFailure(Call<LoginResponse> call, Throwable t) {
 
                 Log.d("Respuesta" , t.getMessage());
-                Log.d("Username" , user.getUsername());
-                Log.d("Password" , user.getPassword());
             }
         });
 

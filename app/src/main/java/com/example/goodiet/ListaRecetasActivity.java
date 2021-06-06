@@ -28,6 +28,7 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
     RecetaService recetaService;
     String category;
     String parametro;
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
         listaRecetas = findViewById(R.id.listaRecetas);
         listaRecetas.setOnItemClickListener(this);
 
+        token = getIntent().getStringExtra("token");
         category = getIntent().getStringExtra("category");
         parametro = getIntent().getStringExtra("parametro");
 
@@ -52,14 +54,14 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
     }
 
     public void ListarRecetasPorCategoria(){
-        Call<List<Receta>> call=recetaService.getRecetasPorCategoria(category);
+        Call<List<Receta>> call=recetaService.getRecetasPorCategoria(category, "Bearer "+ token, "application/json" );
         call.enqueue(new Callback<List<Receta>>() {
             @Override
             public void onResponse(Call<List<Receta>> call, Response<List<Receta>> response) {
                 recetas = response.body();
                 recetaAdapter = new RecetaAdapter(ListaRecetasActivity.this, R.layout.receta, recetas);
                 listaRecetas.setAdapter(recetaAdapter);
-                Log.d("response", response.body().toString());
+                Log.d("Recetas por categoria", response.body().toString());
                 Log.d("status", response.toString());
             }
 
@@ -72,7 +74,7 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
     }
 
     public void ListarRecetasPorParametro(){
-        Call<List<Receta>> call=recetaService.getRecetasPorParametro(parametro);
+        Call<List<Receta>> call=recetaService.getRecetasPorParametro(parametro, "Bearer "+ token, "application/json");
         call.enqueue(new Callback<List<Receta>>() {
             @Override
             public void onResponse(Call<List<Receta>> call, Response<List<Receta>> response) {
@@ -94,25 +96,29 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
 
     public void AbrirPerfil(View view) {
         Intent intent = new Intent(ListaRecetasActivity.this, ProfileActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirFavoritos(View view) {
         Intent intent = new Intent(ListaRecetasActivity.this, FavoriteRecipesActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirConfiguracion(View view) {
         Intent intent = new Intent(ListaRecetasActivity.this, ConfigurationActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirHome(View view) {
-        Intent login = new Intent(ListaRecetasActivity.this, HomeActivity.class);
-        startActivity(login);
+        Intent intent = new Intent(ListaRecetasActivity.this, HomeActivity.class);
+        intent.putExtra("token" , token);
+        startActivity(intent);
         finish();
     }
 
@@ -121,6 +127,8 @@ public class ListaRecetasActivity extends AppCompatActivity implements AdapterVi
         Log.d("position", String.valueOf(position));
         Intent intent = new Intent(ListaRecetasActivity.this, DetalleRecetaActivity.class);
         intent.putExtra("id", recetas.get(position).getId());
+        intent.putExtra("token" , token);
+
         startActivity(intent);
         finish();
     }

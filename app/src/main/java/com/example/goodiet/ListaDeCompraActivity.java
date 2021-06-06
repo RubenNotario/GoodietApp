@@ -28,11 +28,15 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
     ListView listadeCompra;
     EditText ingrediente;
     SharedPreferences sharedPreferences;
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_de_compra);
+
+        token = getIntent().getStringExtra("token");
+
         //Busqueda de vistas del layout.
         listadeCompra = findViewById(R.id.listadeCompra);
         ingrediente = findViewById(R.id.ingrediente);
@@ -73,8 +77,9 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
     }
     //Funcion para ir a la pantalla anterior.
     public void Atras(View view) {
-        Intent login = new Intent(ListaDeCompraActivity.this, ProfileActivity.class);
-        startActivity(login);
+        Intent intent = new Intent(ListaDeCompraActivity.this, ProfileActivity.class);
+        intent.putExtra("token" , token);
+        startActivity(intent);
         finish();
     }
 

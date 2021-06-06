@@ -56,6 +56,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
             Intent intent = new Intent(HomeActivity.this, ListaRecetasActivity.class);
             intent.putExtra("parametro", buscador.getText().toString());
             Log.d("parametro", buscador.getText().toString());
+            intent.putExtra("token" , token);
             startActivity(intent);
             finish();
         }
@@ -84,18 +85,21 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void AbrirPerfil(View view) {
         Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirFavoritos(View view) {
         Intent intent = new Intent(HomeActivity.this, FavoriteRecipesActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirConfiguracion(View view) {
         Intent intent = new Intent(HomeActivity.this, ConfigurationActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
@@ -106,7 +110,8 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
        Intent intent = new Intent(HomeActivity.this, ListaRecetasActivity.class);
        intent.putExtra("category" , categorias.get(position).getName());
        Log.d("category", categorias.get(position).getName());
-       startActivity(intent);
+        intent.putExtra("token" , token);
+        startActivity(intent);
         finish();
     }
 

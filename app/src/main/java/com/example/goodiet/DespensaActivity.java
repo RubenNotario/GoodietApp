@@ -32,10 +32,15 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
     ListaIngredientes listaIngredientes;
     SharedPreferences sharedPreferences;
 
+    String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_despensa);
+
+        token = getIntent().getStringExtra("token");
+
         //Busqueda de vistas del layout.
         listaDespensa = findViewById(R.id.listaDespensa);
         ingrediente = findViewById(R.id.ingrediente);
@@ -85,8 +90,9 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
 
     //Funcion para ir a la pantalla anterior.
     public void Atras(View view) {
-        Intent login = new Intent(DespensaActivity.this, ProfileActivity.class);
-        startActivity(login);
+        Intent intent = new Intent(DespensaActivity.this, ProfileActivity.class);
+        intent.putExtra("token" , token);
+        startActivity(intent);
         finish();
     }
 

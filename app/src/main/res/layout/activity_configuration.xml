@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigurationActivity">
+    tools:context=".ConfigurationActivity"
+    tools:ignore="MissingClass">
 
     <TextView
         android:id="@+id/textView10"
