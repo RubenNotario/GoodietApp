@@ -8,6 +8,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
 
 import com.example.goodiet.Model.Categoria;
@@ -30,6 +31,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     List<Categoria> categorias = new ArrayList<>();
     CategoriaService categoriaService;
     CategoriaAdapter categoriaAdapter;
+    EditText buscador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
         categoriaService = Apis.getCategoriaService();
 
+        buscador = findViewById(R.id.buscador);
         listaCategorias = findViewById(R.id.listaCategorias);
 
         listaCategorias.setOnItemClickListener(this);
@@ -47,7 +50,13 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void BuscarRecetas(View view) {
-
+        if (!buscador.getText().toString().isEmpty()) {
+            Intent intent = new Intent(HomeActivity.this, ListaRecetasActivity.class);
+            intent.putExtra("parametro", buscador.getText().toString());
+            Log.d("parametro", buscador.getText().toString());
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void ListarCategorias(){
@@ -90,7 +99,6 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
 
        Intent intent = new Intent(HomeActivity.this, ListaRecetasActivity.class);
        intent.putExtra("category" , categorias.get(position).name);

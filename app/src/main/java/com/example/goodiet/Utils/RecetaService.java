@@ -16,6 +16,9 @@ public interface RecetaService {
     @GET("recipes/buscar/category/{category}")
     Call<List<Receta>> getRecetasPorCategoria(@Path("category") String category);
 
+    @GET("recipes/buscar/{param}")
+    Call<List<Receta>> getRecetasPorParametro(@Path("param") String category);
+
     @GET("recipes/{id}" )
     Call<Receta> getReceta(@Path("id") int id);
 

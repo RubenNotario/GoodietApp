@@ -84,16 +84,11 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
         final int posicion = i;
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle("¡IMPORTANTE!");
-        dialogo1.setMessage("Antes de eliminar el ingrediente, ¿Desea enviarlo a la despensa? El ingrediente se eliminara automaticamente.");
+        dialogo1.setMessage("¿Desea eliminar el ingrediente? El ingrediente se eliminara automaticamente.");
         dialogo1.setCancelable(false);
         dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //mandar ingrediente a despensa
-                Intent intent = new Intent(ListaDeCompraActivity.this, DespensaActivity.class);
-                intent.putExtra("IngredienteTraspaso", listaIngredientes.ingredientes.get(posicion));
-                startActivity(intent);
-                Toast.makeText(ListaDeCompraActivity.this, "Se ha incluido en la despensa", Toast.LENGTH_SHORT).show();
                 //borrar ingrediente
                 listaIngredientes.ingredientes.remove(posicion);
                 IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listadeCompra.getAdapter();
@@ -102,28 +97,13 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
                 editor.apply();
-                Toast.makeText(ListaDeCompraActivity.this, "Ingrediente eliminado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListaDeCompraActivity.this, "Ingrediente eliminado de la lista de compra", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(ListaDeCompraActivity.this, "No se incluye en la despensa", Toast.LENGTH_SHORT).show();
-                View vista = findViewById(R.id.vistaDeLaCompra);
-                Snackbar.make(vista, "¿Quiere eliminar el ingrediente de la lista de la compra?", Snackbar.LENGTH_INDEFINITE).setAction("SI", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        //borrar ingrediente
-                        listaIngredientes.ingredientes.remove(posicion);
-                        IngredienteAdapter ingredienteAdapter = (IngredienteAdapter) listadeCompra.getAdapter();
-                        ingredienteAdapter.notifyDataSetChanged();
-                        //momento en el que se guardan las preferencias.
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
-                        editor.apply();
-                        Toast.makeText(ListaDeCompraActivity.this, "Ingrediente eliminado", Toast.LENGTH_SHORT).show();
-                    }
-                }).show();
+                Toast.makeText(ListaDeCompraActivity.this, "Operacion cancelada", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.show();
@@ -134,6 +114,6 @@ public class ListaDeCompraActivity extends AppCompatActivity implements AdapterV
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         View vista = findViewById(R.id.vistaDeLaCompra);
-        Snackbar.make(vista, "Manten pulsado sobre el ingrediente para eliminarlo y sigue los pasos", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(vista, "Manten pulsado sobre el ingrediente para eliminarlo", Snackbar.LENGTH_LONG).show();
     }
 }

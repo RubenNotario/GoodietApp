@@ -52,10 +52,6 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
         }else{
             listaIngredientes = new ListaIngredientes();
         }
-        //Transpaso del ingrediente de la lista de compra y añadir el ingrediente traspasado.
-        Intent intent = getIntent();
-        String ingredienteTraspaso = intent.getStringExtra("IngredienteTraspaso");
-        listaIngredientes.ingredientes.add(ingredienteTraspaso);
         //momento en el que se guardan las preferencias.
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
@@ -109,7 +105,7 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
                 editor.apply();
-                Toast.makeText(DespensaActivity.this, "Ingrediente eliminado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DespensaActivity.this, "Ingrediente eliminado de la despensa", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
