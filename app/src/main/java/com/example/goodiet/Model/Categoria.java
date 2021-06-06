@@ -2,13 +2,8 @@ package com.example.goodiet.Model;
 
 public class Categoria {
 
-    public String name;
-    public String imageFile;
-
-    public Categoria(String name, String imageFile) {
-        this.name = name;
-        this.imageFile = imageFile;
-    }
+    String name;
+    String image;
 
     public String getName() {
         return name;
@@ -18,11 +13,11 @@ public class Categoria {
         this.name = name;
     }
 
-    public String getImageFile() {
-        return imageFile;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageFile(String imageFile) {
-        this.imageFile = imageFile;
+    public void setImage(String image) {
+        this.image = image;
     }
 }

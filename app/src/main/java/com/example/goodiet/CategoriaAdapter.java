@@ -2,6 +2,7 @@ package com.example.goodiet;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,12 @@ public class CategoriaAdapter extends ArrayAdapter {
         }
 
 
-        TextView nombreCategoria = convertView.findViewById(R.id.name);
-        nombreCategoria.setText(categorias.get(position).name);
+        TextView name = convertView.findViewById(R.id.name);
+        name.setText(categorias.get(position).getName());
 
-        ImageView imagenCategoria = convertView.findViewById(R.id.imageFile);
-        imagenCategoria.setImageDrawable(Drawable.createFromPath("R.drawable." + categorias.get(position).imageFile));
+        ImageView image = convertView.findViewById(R.id.image);
+        image.setImageDrawable(Drawable.createFromPath("app/src/main/res/drawable/" + categorias.get(position).getImage()));
+        Log.d("imagenes", "app/src/main/res/drawable/" +  categorias.get(position).getImage());
 
 
         return convertView;
