@@ -1,6 +1,5 @@
 package com.example.goodiet.Utils;
 
-
 import com.example.goodiet.Model.LoginResponse;
 import com.example.goodiet.Model.User;
 import retrofit2.Call;
