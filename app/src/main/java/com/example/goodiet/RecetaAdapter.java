@@ -48,13 +48,14 @@ public class RecetaAdapter extends ArrayAdapter {
         TextView description = convertView.findViewById(R.id.description);
         description.setText(recetas.get(position).getDescription());
 
-        ImageView image = convertView.findViewById(R.id.image);
+        ImageView imageBmp = convertView.findViewById(R.id.imageBmp);
 
         InputStream bitmap = null;
         try {
-            bitmap= context.getAssets().open("frios.bmp");
-            Bitmap bit= BitmapFactory.decodeStream(bitmap);
-            image.setImageBitmap(bit);
+
+                bitmap= context.getAssets().open(recetas.get(position).getImageBmp());
+                Bitmap bit= BitmapFactory.decodeStream(bitmap);
+                imageBmp.setImageBitmap(bit);
 
         } catch (IOException e) {
             e.printStackTrace();

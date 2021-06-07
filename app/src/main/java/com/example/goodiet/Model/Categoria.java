@@ -4,6 +4,7 @@ public class Categoria {
 
     String name;
     String image;
+    String imageBmp;
 
     public String getName() {
         return name;
@@ -19,5 +20,13 @@ public class Categoria {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getImageBmp() {
+        return imageBmp;
+    }
+
+    public void setImageBmp(String imageBmp) {
+        this.imageBmp = imageBmp;
     }
 }

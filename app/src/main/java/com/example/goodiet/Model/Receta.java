@@ -5,15 +5,16 @@ public class Receta {
     String name;
     String description;
     String image;
+    String imageBmp;
     int rate;
     int difficulty;
     int timeTaken;
     String steps;
 
-    public Receta(String name, String description, String image) {
+    public Receta(String name, String description, String imageBmp) {
         this.name = name;
         this.description = description;
-        this.image = image;
+        this.imageBmp = imageBmp;
     }
 
     public int getId() {
@@ -80,5 +81,12 @@ public class Receta {
         this.steps = steps;
     }
 
+    public String getImageBmp() {
+        return imageBmp;
+    }
+
+    public void setImageBmp(String imageBmp) {
+        this.imageBmp = imageBmp;
+    }
 }
 

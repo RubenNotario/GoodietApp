@@ -9,16 +9,16 @@ import retrofit2.http.Path;
 
 public interface RecetaService {
 
-    @GET("recipes/")
+    @GET("api/recipes/")
     Call<List<Receta>> getRecetas(@Header("Authorization") String auth, @Header("Content-Type") String contentType);
 
-    @GET("recipes/buscar/category/{category}")
+    @GET("api/recipes/category/{category}")
     Call<List<Receta>> getRecetasPorCategoria(@Path("category") String category, @Header("Authorization") String auth, @Header("Content-Type") String contentType);
 
-    @GET("recipes/buscar/{param}")
-    Call<List<Receta>> getRecetasPorParametro(@Path("param") String category, @Header("Authorization") String auth, @Header("Content-Type") String contentType);
+    @GET("api/recipes/category/{category}")
+    Call<List<Receta>> getRecetasPorParametro(@Path("category") String category, @Header("Authorization") String auth, @Header("Content-Type") String contentType);
 
-    @GET("recipes/{id}" )
+    @GET("api/recipes/{id}" )
     Call<Receta> getReceta(@Path("id") int id, @Header("Authorization") String auth, @Header("Content-Type") String contentType);
 
 }

@@ -51,7 +51,7 @@ public class CategoriaAdapter extends ArrayAdapter {
 
         InputStream bitmap = null;
         try {
-            bitmap= context.getAssets().open("frios.bmp");
+            bitmap= context.getAssets().open(categorias.get(position).getImageBmp());
             Bitmap bit=BitmapFactory.decodeStream(bitmap);
             image.setImageBitmap(bit);
 
