@@ -1,7 +1,10 @@
 package com.example.goodiet;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,8 @@ import androidx.annotation.Nullable;
 
 import com.example.goodiet.Model.Categoria;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class CategoriaAdapter extends ArrayAdapter {
@@ -38,12 +43,21 @@ public class CategoriaAdapter extends ArrayAdapter {
         }
 
 
-        TextView nombreCategoria = convertView.findViewById(R.id.name);
-        nombreCategoria.setText(categorias.get(position).name);
+        TextView name = convertView.findViewById(R.id.name);
+        name.setText(categorias.get(position).getName());
 
-        ImageView imagenCategoria = convertView.findViewById(R.id.imageFile);
-        imagenCategoria.setImageDrawable(Drawable.createFromPath("R.drawable." + categorias.get(position).imageFile));
 
+        ImageView image = convertView.findViewById(R.id.image);
+
+        InputStream bitmap = null;
+        try {
+            bitmap= context.getAssets().open("frios.bmp");
+            Bitmap bit=BitmapFactory.decodeStream(bitmap);
+            image.setImageBitmap(bit);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return convertView;
     }

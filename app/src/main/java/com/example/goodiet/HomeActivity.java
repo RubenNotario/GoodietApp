@@ -32,6 +32,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     CategoriaService categoriaService;
     CategoriaAdapter categoriaAdapter;
     EditText buscador;
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_home);
 
         categoriaService = Apis.getCategoriaService();
+        token = getIntent().getStringExtra("token");
 
         buscador = findViewById(R.id.buscador);
         listaCategorias = findViewById(R.id.listaCategorias);
@@ -54,21 +56,23 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
             Intent intent = new Intent(HomeActivity.this, ListaRecetasActivity.class);
             intent.putExtra("parametro", buscador.getText().toString());
             Log.d("parametro", buscador.getText().toString());
+            intent.putExtra("token" , token);
             startActivity(intent);
             finish();
         }
     }
 
     public void ListarCategorias(){
-        Call<List<Categoria>> call=categoriaService.getCategorias();
+        Call<List<Categoria>> call=categoriaService.getCategorias("Bearer "+ token,  "application/json");
         call.enqueue(new Callback<List<Categoria>>() {
             @Override
             public void onResponse(Call<List<Categoria>> call, Response<List<Categoria>> response) {
+                Log.d("status", response.toString());
+                Log.d("token", token);
+                Log.d("response", response.body().toString());
                 categorias = response.body();
                 categoriaAdapter = new CategoriaAdapter(HomeActivity.this, R.layout.categoria, categorias);
                 listaCategorias.setAdapter(categoriaAdapter);
-                Log.d("response", response.body().toString());
-                Log.d("status", response.toString());
             }
 
             @Override
@@ -81,18 +85,21 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void AbrirPerfil(View view) {
         Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirFavoritos(View view) {
         Intent intent = new Intent(HomeActivity.this, FavoriteRecipesActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirConfiguracion(View view) {
         Intent intent = new Intent(HomeActivity.this, ConfigurationActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
@@ -101,9 +108,10 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
        Intent intent = new Intent(HomeActivity.this, ListaRecetasActivity.class);
-       intent.putExtra("category" , categorias.get(position).name);
-        Log.d("category", categorias.get(position).name);
-       startActivity(intent);
+       intent.putExtra("category" , categorias.get(position).getName());
+       Log.d("category", categorias.get(position).getName());
+        intent.putExtra("token" , token);
+        startActivity(intent);
         finish();
     }
 

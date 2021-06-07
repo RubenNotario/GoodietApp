@@ -16,8 +16,8 @@ public class ConfigurationActivity extends AppCompatActivity {
     }
 
     public void Atras(View view) {
-        Intent login = new Intent(ConfigurationActivity.this, HomeActivity.class);
-        startActivity(login);
+        Intent intent = new Intent(ConfigurationActivity.this, HomeActivity.class);
+        startActivity(intent);
         finish();
     }
 }

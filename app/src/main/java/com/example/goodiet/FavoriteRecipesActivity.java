@@ -17,18 +17,15 @@ public class FavoriteRecipesActivity extends AppCompatActivity implements Adapte
 
     ListView listaRecetas;
     List<Receta> recetas = new ArrayList<>();
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_recipes);
 
+        token = getIntent().getStringExtra("token");
 
-        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
-        recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
         recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
         recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
         recetas.add(new Receta("Nombre de Receta", "Descripción", "R.drawable.logo"));
@@ -45,18 +42,21 @@ public class FavoriteRecipesActivity extends AppCompatActivity implements Adapte
 
     public void AbrirPerfil(View view) {
         Intent intent = new Intent(FavoriteRecipesActivity.this, ProfileActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirHome(View view) {
         Intent intent = new Intent(FavoriteRecipesActivity.this, HomeActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
 
     public void AbrirConfiguracion(View view) {
         Intent intent = new Intent(FavoriteRecipesActivity.this, ConfigurationActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }
@@ -64,6 +64,7 @@ public class FavoriteRecipesActivity extends AppCompatActivity implements Adapte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(FavoriteRecipesActivity.this, DetalleRecetaActivity.class);
+        intent.putExtra("token" , token);
         startActivity(intent);
         finish();
     }

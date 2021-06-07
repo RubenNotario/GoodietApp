@@ -3,16 +3,17 @@ package com.example.goodiet.Model;
 public class Receta {
     int id;
     String name;
-    String descripcion;
-    String imageFile;
-    String pasos;
-    int puntuacion;
-    String timeTaken;
+    String description;
+    String image;
+    int rate;
+    int difficulty;
+    int timeTaken;
+    String steps;
 
-    public Receta(String name, String descripcion, String imageFile){
+    public Receta(String name, String description, String image) {
         this.name = name;
-        this.descripcion = descripcion;
-        this.imageFile = imageFile;
+        this.description = description;
+        this.image = image;
     }
 
     public int getId() {
@@ -31,43 +32,53 @@ public class Receta {
         this.name = name;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getImageFile() {
-        return imageFile;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageFile(String imageFile) {
-        this.imageFile = imageFile;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getPasos() {
-        return pasos;
+    public int getRate() {
+        return rate;
     }
 
-    public void setPasos(String pasos) {
-        this.pasos = pasos;
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
-    public int getPuntuacion() {
-        return puntuacion;
+    public int getDifficulty() {
+        return difficulty;
     }
 
-    public void setPuntuacion(int puntuacion) {
-        this.puntuacion = puntuacion;
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
     }
 
-    public String getTimeTaken() {
+    public int getTimeTaken() {
         return timeTaken;
     }
 
-    public void setTimeTaken(String timeTaken) {
+    public void setTimeTaken(int timeTaken) {
         this.timeTaken = timeTaken;
     }
+
+    public String getSteps() {
+        return steps;
+    }
+
+    public void setSteps(String steps) {
+        this.steps = steps;
+    }
+
 }
+

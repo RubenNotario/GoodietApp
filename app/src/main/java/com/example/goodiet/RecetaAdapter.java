@@ -1,6 +1,8 @@
 package com.example.goodiet;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,8 @@ import androidx.annotation.Nullable;
 
 import com.example.goodiet.Model.Receta;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class RecetaAdapter extends ArrayAdapter {
@@ -41,12 +45,20 @@ public class RecetaAdapter extends ArrayAdapter {
         TextView name = convertView.findViewById(R.id.name);
         name.setText(recetas.get(position).getName());
 
-        TextView descripcion = convertView.findViewById(R.id.descripcion);
-        descripcion.setText(recetas.get(position).getDescripcion());
+        TextView description = convertView.findViewById(R.id.description);
+        description.setText(recetas.get(position).getDescription());
 
-        ImageView imageFile = convertView.findViewById(R.id.imageFile);
-        imageFile.setImageDrawable(Drawable.createFromPath("R.drawable." + recetas.get(position).getImageFile()));
+        ImageView image = convertView.findViewById(R.id.image);
 
+        InputStream bitmap = null;
+        try {
+            bitmap= context.getAssets().open("frios.bmp");
+            Bitmap bit= BitmapFactory.decodeStream(bitmap);
+            image.setImageBitmap(bit);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return convertView;
     }

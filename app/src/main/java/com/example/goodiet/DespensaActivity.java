@@ -32,10 +32,15 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
     ListaIngredientes listaIngredientes;
     SharedPreferences sharedPreferences;
 
+    String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_despensa);
+
+        token = getIntent().getStringExtra("token");
+
         //Busqueda de vistas del layout.
         listaDespensa = findViewById(R.id.listaDespensa);
         ingrediente = findViewById(R.id.ingrediente);
@@ -81,8 +86,9 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
 
     //Funcion para ir a la pantalla anterior.
     public void Atras(View view) {
-        Intent login = new Intent(DespensaActivity.this, ProfileActivity.class);
-        startActivity(login);
+        Intent intent = new Intent(DespensaActivity.this, ProfileActivity.class);
+        intent.putExtra("token" , token);
+        startActivity(intent);
         finish();
     }
 
@@ -105,7 +111,7 @@ public class DespensaActivity extends AppCompatActivity implements AdapterView.O
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("ingredientesAñadidos", listaIngredientes.toJson());
                 editor.apply();
-                Toast.makeText(DespensaActivity.this, "Ingrediente eliminado de la despensa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DespensaActivity.this, "Ingrediente eliminado", Toast.LENGTH_SHORT).show();
             }
         });
         dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

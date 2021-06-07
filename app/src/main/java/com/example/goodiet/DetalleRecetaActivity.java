@@ -3,6 +3,8 @@ package com.example.goodiet;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,9 @@ import com.example.goodiet.Model.Receta;
 import com.example.goodiet.Utils.Apis;
 import com.example.goodiet.Utils.RecetaService;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,11 +25,16 @@ import retrofit2.Response;
 public class DetalleRecetaActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
     ImageView megusta;
-    TextView pasos;
+    TextView steps;
     TextView name;
-    TextView time;
+    TextView timeTaken;
+    TextView difficulty;
+    TextView rate;
+    ImageView image;
+
     RecetaService recetaService;
     int id;
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +42,16 @@ public class DetalleRecetaActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_detalle_receta);
 
         megusta = findViewById(R.id.recetaFavorita);
-        pasos = findViewById(R.id.pasos);
+        steps = findViewById(R.id.pasos);
         name = findViewById(R.id.name);
-        time = findViewById(R.id.timeTaken);
-
+        timeTaken = findViewById(R.id.timeTaken);
+        difficulty = findViewById(R.id.difficulty);
+        rate = findViewById(R.id.rate);
+        image = findViewById(R.id.image);
 
         recetaService = Apis.getRecetaService();
 
+        token = getIntent().getStringExtra("token");
         id = getIntent().getIntExtra("id", 0);
 
 
@@ -49,7 +62,7 @@ public class DetalleRecetaActivity extends AppCompatActivity implements View.OnC
     }
 
     public void GetReceta(){
-        Call<Receta> call=recetaService.getReceta(id);
+        Call<Receta> call=recetaService.getReceta(id, "Bearer "+ token, "application/json" );
         call.enqueue(new Callback<Receta>() {
 
             @Override
@@ -58,9 +71,22 @@ public class DetalleRecetaActivity extends AppCompatActivity implements View.OnC
                 Log.d("status", response.toString());
                 Log.d("id", String.valueOf((id)));
 
-                pasos.setText(response.body().getPasos());
+                steps.setText(response.body().getSteps());
                 name.setText(response.body().getName());
-                time.setText(response.body().getTimeTaken());
+                timeTaken.setText(String.valueOf(response.body().getTimeTaken()));
+                rate.setText(String.valueOf(response.body().getRate()));
+                difficulty.setText(String.valueOf(response.body().getDifficulty()));
+
+                InputStream bitmap = null;
+                try {
+                    bitmap= getAssets().open("frios.bmp");
+                    Bitmap bit= BitmapFactory.decodeStream(bitmap);
+                    image.setImageBitmap(bit);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
@@ -72,9 +98,10 @@ public class DetalleRecetaActivity extends AppCompatActivity implements View.OnC
     }
 
             public void Atras(View view) {
-        Intent login = new Intent(DetalleRecetaActivity.this, HomeActivity.class);
-        startActivity(login);
-        finish();
+                Intent intent = new Intent(DetalleRecetaActivity.this, HomeActivity.class);
+                intent.putExtra("token" , token);
+                startActivity(intent);
+                finish();
     }
 
     @Override
